@@ -20,7 +20,7 @@ const UserSchema = new Schema(
     },
     isadmin: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
     profilePicture: String,
     coverPicture: String,
@@ -33,6 +33,7 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
+
 
 const UserModel = model("Users", UserSchema);
 module.exports = UserModel;

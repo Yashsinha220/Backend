@@ -35,7 +35,7 @@ const updatePost = async (req, res, next) => {
     if (post.userId === userId) {
       // updating the post data witht the body sent by the client
       await post.updateOne({ $set: req.body });
-      res.status(200).json("post updated");
+      res.status(200).json({msg : "post updated successfully"});
     } else {
       res.status(401).json({ msg: "Unauthorized" });
     }
@@ -52,7 +52,7 @@ const deletepost = async (req, res, next) => {
     const post = await Post.findById(id);
     if (post.userId === userId) {
       await post.deleteOne();
-      res.status(200).json("post deleted successfully");
+      res.status(200).json({msg : "post deleted successfully"});
     } else {
       res.status(403).json("Action forbidden");
     }
